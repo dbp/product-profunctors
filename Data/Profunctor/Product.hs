@@ -231,9 +231,29 @@ pT18 :: ProductProfunctor p => T18 (p a1 b1) (p a2 b2) (p a3 b3) (p a4 b4)
             (T18 b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b12 b13 b14 b15 b16 b17 b18)
 pT18 = chain pT17
 
+pT19 :: ProductProfunctor p => T19 (p a1 b1) (p a2 b2) (p a3 b3) (p a4 b4)
+                                   (p a5 b5) (p a6 b6) (p a7 b7) (p a8 b8)
+                                   (p a9 b9) (p a10 b10) (p a11 b11)
+                                   (p a12 b12) (p a13 b13) (p a14 b14)
+                                   (p a15 b15) (p a16 b16) (p a17 b17)
+                                   (p a18 b18) (p a19 b19)
+       -> p (T19 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19)
+            (T19 b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b12 b13 b14 b15 b16 b17 b18 b19)
+pT19 = chain pT18
+
+pT20 :: ProductProfunctor p => T20 (p a1 b1) (p a2 b2) (p a3 b3) (p a4 b4)
+                                   (p a5 b5) (p a6 b6) (p a7 b7) (p a8 b8)
+                                   (p a9 b9) (p a10 b10) (p a11 b11)
+                                   (p a12 b12) (p a13 b13) (p a14 b14)
+                                   (p a15 b15) (p a16 b16) (p a17 b17)
+                                   (p a18 b18) (p a19 b19) (p a20 b20)
+       -> p (T20 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20)
+            (T20 b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b12 b13 b14 b15 b16 b17 b18 b19 b20)
+pT20 = chain pT19
+
 convert :: Profunctor p => (a2 -> a1) -> (tp -> tTp) -> (b1 -> b2)
-                           -> (tTp -> p a1 b1)
-                           -> tp -> p a2 b2
+                            -> (tTp -> p a1 b1)
+                            -> tp -> p a2 b2
 convert u u' f c = dimap u f . c . u'
 
 p0 :: ProductProfunctor p => () -> p () ()
@@ -349,3 +369,23 @@ p18 :: ProductProfunctor p => (p a1 b1, p a2 b2, p a3 b3, p a4 b4,
       -> p (a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18)
            (b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18)
 p18 = convert unflatten18 unflatten18 flatten18 pT18
+
+p19 :: ProductProfunctor p => (p a1 b1, p a2 b2, p a3 b3, p a4 b4,
+                              p a5 b5, p a6 b6, p a7 b7, p a8 b8,
+                              p a9 b9, p a10 b10, p a11 b11, p a12 b12,
+                              p a13 b13, p a14 b14, p a15 b15, p a16 b16,
+                              p a17 b17, p a18 b18, p a19 b19)
+      -> p (a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19)
+           (b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19)
+p19 = convert unflatten19 unflatten19 flatten19 pT19
+
+p20 :: ProductProfunctor p => (p a1 b1, p a2 b2, p a3 b3, p a4 b4,
+                               p a5 b5, p a6 b6, p a7 b7, p a8 b8,
+                               p a9 b9, p a10 b10, p a11 b11, p a12 b12,
+                               p a13 b13, p a14 b14, p a15 b15, p a16 b16,
+                               p a17 b17, p a18 b18, p a19 b19, p a20 b20)
+        -> p (a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12,
+              a13, a14, a15, a16, a17, a18, a19, a20)
+             (b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12,
+              b13, b14, b15, b16, b17, b18, b19, b20)
+p20 = convert unflatten20 unflatten20 flatten20 pT20

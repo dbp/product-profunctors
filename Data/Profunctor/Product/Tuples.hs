@@ -25,3 +25,7 @@ type T17 a b c d e f g h a9 a10 a11 a12 a13 a14 a15 a16 a17 =
   (a, T16 b c d e f g h a9 a10 a11 a12 a13 a14 a15 a16 a17)
 type T18 a b c d e f g h a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 =
   (a, T17 b c d e f g h a9 a10 a11 a12 a13 a14 a15 a16 a17 a18)
+type T19 a b c d e f g h a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 =
+  (a, T18 b c d e f g h a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19)
+type T20 a b c d e f g h a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 =
+  (a, T19 b c d e f g h a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20)
